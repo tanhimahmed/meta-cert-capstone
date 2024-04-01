@@ -1,38 +1,106 @@
-.App {
+/** global **/
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100vw;
+}
+
+.wrapper {
+  border: 2px solid black;
+}
+
+/** header **/
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  padding-left: 2vw;
+  align-items: stretch;
+}
+
+.headerMenu {
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  padding-left: 48vw;
+  padding-right: 4vw;
+}
+
+/** hero section **/
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 2rem;
+}
+
+.heroItem {
+  border: 2px solid black;
+  text-align: center;
+  align-self: center;
+}
+
+.heroImg {
+  width: 70vw;
+}
+
+/** highlights section **/
+.highlights {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.highlightsHeader {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.highlightsMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/** reviews section **/
+.reviews {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.reviewsHeader {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.testimonials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+/** about section **/
+.about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+}
+
+.aboutImg {
+  width: 30vw;
+}
+
+/** footer section **/
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 2rem;
 }
