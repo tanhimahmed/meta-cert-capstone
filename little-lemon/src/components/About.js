@@ -4,12 +4,12 @@ import aboutImg from '../assets/icons_assets/Mario and Adrian b.jpg';
 function About() {
     return (
         <div className="about">
-            <div className="col-4">
-                <h2>Little Lemon</h2>
-                <h6>Chicago</h6>
+            <div className="aboutInfo">
+                <h1>Little Lemon</h1>
+                <h2>Chicago</h2>
                 <p>Laboris laborum excepteur nulla culpa.</p>
             </div>
-            <div className="col-8">
+            <div className="aboutView">
                 <img className="aboutImg" src={aboutImg} alt="about" />
             </div>
         </div>

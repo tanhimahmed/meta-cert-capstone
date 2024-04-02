@@ -2,8 +2,8 @@ import '../App.css';
 
 function MenuCard({ cardImg, cardTitle, cardDesc }) {
     return (
-        <div>
-            <img src={cardImg} alt="menu card" />
+        <div className='menuCard'>
+            <img width={"300vw"} height={"200vh"} src={cardImg} alt="menu card" />
             <h5>{cardTitle}</h5>
             <p>{cardDesc}</p>
 

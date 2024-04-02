@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 100vw;
+  width: 98vw;
+  padding: 1rem;
 }
 
 .wrapper {
@@ -12,23 +13,26 @@
 
 /** header **/
 .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  padding-left: 2vw;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+/** TODO: add viewport resizing for mobile and ipad views **/
+.headerLogo {
+  width: 20vw;
+  padding-top: 1rem;
 }
 
 .headerMenu {
-  align-self: flex-end;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
   padding-bottom: 1rem;
-  padding-left: 48vw;
+  padding-left: 20vw;
   padding-right: 4vw;
 }
 
@@ -36,11 +40,10 @@
 .hero {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 
 .heroItem {
-  border: 2px solid black;
   text-align: center;
   align-self: center;
 }
@@ -53,7 +56,7 @@
 .highlights {
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 
 .highlightsHeader {
@@ -67,11 +70,18 @@
   gap: 2rem;
 }
 
+.menuCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: flex-end;
+}
+
 /** reviews section **/
 .reviews {
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 
 .reviewsHeader {
@@ -81,8 +91,11 @@
 .testimonials {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   gap: 2rem;
+}
+
+.review {
+  text-align: right;
 }
 
 /** about section **/
@@ -90,17 +103,30 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 
 .aboutImg {
-  width: 30vw;
+  width: 60vw;
 }
 
 /** footer section **/
 .footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: .5fr 2fr 1fr 1fr;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.footerLogo {
+  padding-top: 3rem;
+}
+
+.footer div {
+  align-items: center;
+  padding-left: 5rem;
+}
+
+ul li {
+  list-style-type: none;
 }
