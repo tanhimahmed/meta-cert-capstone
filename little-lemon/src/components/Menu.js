@@ -1,8 +1,8 @@
 import '../App.css';
 import MenuCard from './MenuCard';
-import cardImg1 from '../assets/icons_assets/greek salad.jpg';
+import cardImg1 from '../assets/icons_assets/greek salad.svg';
 import cardImg2 from '../assets/icons_assets/bruchetta.svg';
-import cardImg3 from '../assets/icons_assets/lemon dessert.jpg';
+import cardImg3 from '../assets/icons_assets/lemon dessert.svg';
 
 function Menu() {
     let cardDesc = 'Nostrud sunt qui non non deserunt excepteur est veniam culpa eu mollit in.';

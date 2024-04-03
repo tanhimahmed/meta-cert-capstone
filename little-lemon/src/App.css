@@ -20,9 +20,8 @@
   padding-left: 2rem;
 }
 
-/** TODO: add viewport resizing for mobile and ipad views **/
 .headerLogo {
-  width: 20vw;
+  width: 10vw;
   padding-top: 1rem;
 }
 
@@ -40,7 +39,7 @@
 .hero {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-top: 5rem;
+  padding-top: 1rem;
 }
 
 .heroItem {
@@ -49,7 +48,7 @@
 }
 
 .heroImg {
-  width: 70vw;
+  width: 57vw;
 }
 
 /** highlights section **/
@@ -73,8 +72,12 @@
 .menuCard {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  align-items: flex-end;
+  align-items: center;
+}
+
+.menuCard img {
+  width: 25vw;
+  height: 300px;
 }
 
 /** reviews section **/
@@ -95,7 +98,7 @@
 }
 
 .review {
-  text-align: right;
+  text-align: center;
 }
 
 /** about section **/
@@ -112,19 +115,46 @@
 
 /** footer section **/
 .footer {
-  display: grid;
-  grid-template-columns: .5fr 2fr 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 1rem; 
+  justify-content: space-evenly;
 }
 
 .footerLogo {
   padding-top: 3rem;
 }
 
+.footerLinks {
+  margin-right: 15vw;
+}
+
+@media only screen and (max-width:600px) {
+  .contactInfo {
+    margin-right: auto;
+    margin-bottom: 3vh;
+  }
+  .footerInfo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }  
+}
+
+@media only screen and (min-width:600px){
+  .footerInfo {
+    display: flex;
+    flex-direction: row;
+  }
+  .contactInfo {
+    margin-right: 15vw;
+  }
+}
+
 .footer div {
   align-items: center;
-  padding-left: 5rem;
 }
 
 ul li {
