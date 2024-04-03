@@ -6,7 +6,6 @@ function MenuCard({ cardImg, cardTitle, cardDesc }) {
             <img src={cardImg} alt="menu card" />
             <h5>{cardTitle}</h5>
             <p>{cardDesc}</p>
-
             <button type="button">Order now</button>
         </div>
     )

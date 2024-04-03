@@ -13,22 +13,18 @@ function App() {
     '19:00',
     '20:00',
     '21:00',
-    '22:00'
+    '22:00',
+    'bogus time'
   ]);
 
-  const setTimes = useCallback((response) => {
-    console.log(response);
-    setAvailableTimes(response.availableTimes);
-  }, []);
-
-  const timeContextValue = useMemo(() => ({
-    availableTimes,
-    setTimes
-  }), [availableTimes, setTimes]);
+  // const timeContextValue = useMemo(() => ({
+  //   availableTimes,
+  //   setAvailableTimes
+  // }), [availableTimes]);
 
   return (
     <>
-      <BookingTimesContext.Provider value={timeContextValue}>
+      <BookingTimesContext.Provider value={{availableTimes, setAvailableTimes}}>
         <div className="container">
           <Header/>
           <Outlet />
