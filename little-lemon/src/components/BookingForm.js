@@ -1,15 +1,16 @@
 import '../App.css';
 import { useState, useContext } from 'react';
-import { BookingTimesContext } from '../App';
+import { BookingFormContext, BookingFormDispatchContext } from './../contexts/BookingFormContext.js';
 
 function BookingForm () {
-    const { availableTimes, setAvailableTimes } = useContext(BookingTimesContext);
+    const times = useContext(BookingFormContext);
+    const dispatch = useContext(BookingFormDispatchContext);
 
     const [bookingDate, setBookingDate] = useState(new Date().toLocaleDateString('en-CA'));
-    const [bookingTime, setBookingTime] = useState('17:00');
+    const [bookingTime, setBookingTime] = useState(times[0]);
     const [numGuests, setNumGuests] = useState(2);
     const [type, setType] = useState('Dining');
-    let timeslotOptions = availableTimes.map(timeslot => <option>{timeslot}</option>);
+    let timeslotOptions = times.map(timeslot => <option>{timeslot}</option>);
     const types = [ 'Dining', 'Takeout', 'Delivery', 'Private Event' ];
     const typesOptions = types.map(type => <option> {type} </option>);
 
@@ -20,19 +21,22 @@ function BookingForm () {
         setType("");
     }
 
+
+    //TODO: fix bug with multiple submits on the 0 index timeslot
     const handleSubmit = (e) => {
         e.preventDefault();
-        let tempModified = availableTimes.filter(time => time !== bookingTime);
-        console.log(tempModified);
-        timeslotOptions = tempModified.map(timeslot => <option>{timeslot}</option>);
-        setAvailableTimes(tempModified);
+        timeslotOptions = dispatch({
+            type: 'submit',
+            time: bookingTime
+        });
 
         alert(
-            `Booking date: `  + bookingDate+1 + "\n" +
+            `Booking date: `  + bookingDate + "\n" +
             `Booking time: `  + bookingTime + "\n" +
             `Number of guests: `  + numGuests + "\n" +
             `Reservation type: `  + type
         );
+        setBookingTime("");
     }
 
     return (
