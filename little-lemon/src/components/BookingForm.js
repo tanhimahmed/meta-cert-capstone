@@ -1,48 +1,58 @@
 import '../App.css';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { BookingFormContext, BookingFormDispatchContext } from './../contexts/BookingFormContext.js';
 
 function BookingForm () {
     const times = useContext(BookingFormContext);
     const dispatch = useContext(BookingFormDispatchContext);
 
-    const [bookingDate, setBookingDate] = useState(new Date().toLocaleDateString('en-CA'));
-    const [bookingTime, setBookingTime] = useState(times[0]);
+    const [bookingDate, setBookingDate] = useState('');
+    const [bookingTime, setBookingTime] = useState('');
     const [numGuests, setNumGuests] = useState(2);
     const [type, setType] = useState('Dining');
-    let timeslotOptions = times.map(timeslot => <option>{timeslot}</option>);
+    let timeslotOptions = times.map(timeslot => <option key={timeslot}>{timeslot}</option>);
     const types = [ 'Dining', 'Takeout', 'Delivery', 'Private Event' ];
-    const typesOptions = types.map(type => <option> {type} </option>);
-
+    const typesOptions = types.map(type => <option key={type}> {type} </option>);
+    
     const clearForm = () => {
-        setBookingDate("");
-        setBookingTime("");
+        setBookingDate('');
+        setBookingTime('');
         setNumGuests(0);
-        setType("");
+        setType('');
     }
 
-
-    //TODO: fix bug with multiple submits on the 0 index timeslot
     const handleSubmit = (e) => {
         e.preventDefault();
-        timeslotOptions = dispatch({
-            type: 'submit',
-            time: bookingTime
-        });
-
-        alert(
-            `Booking date: `  + bookingDate + "\n" +
-            `Booking time: `  + bookingTime + "\n" +
-            `Number of guests: `  + numGuests + "\n" +
-            `Reservation type: `  + type
-        );
-        setBookingTime("");
+        if (bookingTime === '') {
+            alert('Select a time for booking');
+        }
+        else {
+            timeslotOptions = dispatch({
+                type: 'submit', 
+                time: bookingTime
+            });
+            alert(
+                'Booking date: '  + bookingDate + '\n' +
+                'Booking time: '  + bookingTime + '\n' +
+                'Number of guests: '  + numGuests + '\n' +
+                'Reservation type: '  + type
+            );
+        }
+        setBookingTime('');
     }
 
-    return (
+    const handleDateChange = (e) => {
+        setBookingDate(e.target.value);
+        timeslotOptions = dispatch({
+            type: 'date',
+            date: bookingDate
+        });
+    }
+
+   return (
         <form className='bookingForm' onSubmit={handleSubmit}>
             <label htmlFor='res-date'>Choose date</label>
-            <input type='date' id='res-date' value={bookingDate} onChange={(e) => {setBookingDate(e.target.valueAsDate)}}/>
+            <input aria-label="Pick Date" type='date' id='res-date' value={bookingDate} onChange={(e) => {handleDateChange(e)}}/>
             <br/><br/>
 
             <label htmlFor='res-time'>Choose time</label>
@@ -63,7 +73,7 @@ function BookingForm () {
 
 
             <button onClick={clearForm}> clear </button>
-            <input type='submit' value='Submit reservation' />
+            <input aria-label="Submit" type='submit' value='Submit reservation' />
         </form>
     )
 }
